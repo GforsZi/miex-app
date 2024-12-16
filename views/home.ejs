@@ -1,0 +1,14 @@
+<%- include("templates/header.ejs") %>
+<%- include("templates/navbar.ejs") %>
+
+    <h1>Home page</h1>
+    <H3>Daftar barang </H3>
+    <% barang.forEach( brg => { %>
+    <ul>
+    <li>Barang : <%= brg.nama %></li>
+    <li>stock: <%= brg.stock %></li>
+    </ul>
+    <% }) %>
+
+  
+<%- include("templates/footer.ejs") %>
