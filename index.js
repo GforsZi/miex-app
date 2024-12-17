@@ -1,27 +1,19 @@
 const express = require("express");
+const landingControllers = require("./controllers/landingControllers");
+const homeControllers = require("./controllers/homeControllers");
+
 const app = express();
 const port = 3000;
 
 app.set("view engine", "ejs");
-
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index", { tittle: "Landing Page" });
+  landingControllers.index(req, res);
 });
 
 app.get("/home", (req, res) => {
-  const barang = [
-    {
-      nama: "kue",
-      stock: 40
-    },
-    {
-      nama: "cookie",
-      stock: 80
-    }
-  ];
-  res.render("home", { tittle: "Home Page", barang });
+  homeControllers.index(req, res);
 });
 
 app.use((req, res, next) => {
@@ -29,5 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(
+    `Miex app run on localhost port ${port}, [ http://localhost:${port} ]`
+  );
 });
