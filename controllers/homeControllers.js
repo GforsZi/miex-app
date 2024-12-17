@@ -1,4 +1,3 @@
-const animechanQuote = require("../models/animechan/quote");
 
 function index(req, res) {
   res.render("home", { tittle: "Home Page", barang });
